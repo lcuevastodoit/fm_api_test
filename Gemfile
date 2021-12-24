@@ -57,4 +57,6 @@ gem 'responders'
 gem 'rspotify'
 gem 'rubocop'
 gem 'sidekiq'
+gem 'sidekiq-limit_fetch'
+gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
