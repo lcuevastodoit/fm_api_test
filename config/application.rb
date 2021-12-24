@@ -67,5 +67,11 @@ module FonkieTest
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    if defined?(Rails::Server)
+      config.after_initialize do
+        # Do stuff here
+        ReqresImporter.new.create_users unless User.count.positive?
+      end
+    end
   end
 end

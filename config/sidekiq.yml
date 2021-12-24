@@ -1,0 +1,11 @@
+:concurrency: 1
+:max_retries: 2
+:limits:
+    reqres: 2
+:queues:
+  - ["reqres", 1]
+:schedule:
+  reqres_worker:
+    every: '3m'
+    class: ReqresWorker
+    queue: reqres
