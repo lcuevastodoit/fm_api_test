@@ -52,6 +52,9 @@ end
 gem 'active_model_serializers', require: true
 gem 'execution_time'
 gem 'httparty'
+gem 'kaminari'
+gem 'pager_api', require: true
+gem 'pagy'
 gem 'pry-rails'
 gem 'rack-cors'
 gem 'responders'
@@ -61,3 +64,4 @@ gem 'sidekiq'
 gem 'sidekiq-limit_fetch'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'will_paginate'

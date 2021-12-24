@@ -178,6 +178,18 @@ GEM
       concurrent-ruby (~> 1.0)
     jsonapi-renderer (0.2.2)
     jwt (2.3.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -219,6 +231,8 @@ GEM
     omniauth-oauth2 (1.7.2)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    pager_api (0.3.2)
+    pagy (5.6.6)
     parallel (1.21.0)
     parser (3.0.3.2)
       ast (~> 2.4.1)
@@ -337,6 +351,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.5.1)
@@ -352,7 +367,10 @@ DEPENDENCIES
   capybara
   execution_time
   httparty
+  kaminari
   listen (~> 3.2)
+  pager_api
+  pagy
   pg
   pry-rails
   puma
@@ -372,6 +390,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+  will_paginate
 
 RUBY VERSION
    ruby 2.7.1p83
