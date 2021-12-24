@@ -51,6 +51,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'active_model_serializers', require: true
 gem 'execution_time'
+gem 'httparty'
 gem 'pry-rails'
 gem 'rack-cors'
 gem 'responders'

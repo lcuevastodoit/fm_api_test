@@ -37,7 +37,11 @@ module FonkieTest
       end
       sidekiq = `ps -ax | grep [s]idekiq && echo $?`
       unless sidekiq.include? 'sidekiq'
-        Sidekiq.redis(&:flushdb)
+        begin
+          Sidekiq.redis(&:flushdb)
+        rescue StandardError
+          true
+        end
         begin
           system('bundle exec sidekiq &')
         rescue StandardError
@@ -56,6 +60,8 @@ module FonkieTest
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.autoload_paths += %W[#{config.root}/app/workers]
+    config.eager_load_paths += %W[#{config.root}/lib/services]
+    config.autoload_paths << "#{Rails.root}/lib/services"
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
