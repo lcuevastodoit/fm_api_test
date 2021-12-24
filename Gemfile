@@ -39,6 +39,7 @@ group :development, :test do
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
     # Previously '4-0-dev' or '4-0-maintenance' branch
   end
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -59,6 +60,9 @@ gem 'pry-rails'
 gem 'rack-cors'
 gem 'responders'
 gem 'rspotify'
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
 gem 'rubocop'
 gem 'sidekiq'
 gem 'sidekiq-limit_fetch'

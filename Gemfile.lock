@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 24631bfc78fc0bd69d66ab8eb7f81731bd789bbc
+  revision: 84d3ba39770e341f6e19d65f5ecce83a8842bff9
   branch: main
   specs:
     rspec-rails (5.1.0.pre)
@@ -176,6 +176,8 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
     jsonapi-renderer (0.2.2)
     jwt (2.3.0)
     kaminari (1.2.1)
@@ -205,7 +207,6 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.1115)
     mini_mime (1.1.2)
-    mini_portile2 (2.6.1)
     minitest (5.15.0)
     msgpack (1.4.2)
     multi_json (1.15.0)
@@ -213,9 +214,6 @@ GEM
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
-      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     oauth2 (1.4.7)
@@ -299,6 +297,19 @@ GEM
       addressable (~> 2.8.0)
       omniauth-oauth2 (>= 1.6)
       rest-client (~> 2.0.2)
+    rswag (2.4.0)
+      rswag-api (= 2.4.0)
+      rswag-specs (= 2.4.0)
+      rswag-ui (= 2.4.0)
+    rswag-api (2.4.0)
+      railties (>= 3.1, < 7.0)
+    rswag-specs (2.4.0)
+      activesupport (>= 3.1, < 7.0)
+      json-schema (~> 2.2)
+      railties (>= 3.1, < 7.0)
+    rswag-ui (2.4.0)
+      actionpack (>= 3.1, < 7.0)
+      railties (>= 3.1, < 7.0)
     rubocop (1.24.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
@@ -383,6 +394,10 @@ DEPENDENCIES
   rspec-rails!
   rspec-support!
   rspotify
+  rswag
+  rswag-api
+  rswag-specs
+  rswag-ui
   rubocop
   sidekiq
   sidekiq-limit_fetch
