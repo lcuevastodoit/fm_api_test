@@ -9,7 +9,8 @@ class ReqresIn
   end
 
   # GET /api/users
-  # Returns a json list of users per page, containing 6 main keys: page, per_page, total, total_pages,
+  # Returns a json list of users per page, containing 
+  # 6 main keys: page, per_page, total, total_pages,
   # data(id, email, first_name, last_name, avatar), support(url, text)
   def users
     self.class.get('/users', @options)
