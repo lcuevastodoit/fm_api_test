@@ -1,35 +1,10 @@
 ---
-openapi: 3.0.1
+swagger: '2.0'
 info:
   title: API V1
   version: v1
 paths:
   "/api/v1/users":
-    parameters:
-    - name: email
-      in: path
-      description: email
-      required: true
-      schema:
-        type: string
-    - name: first_name
-      in: path
-      description: first_name
-      required: true
-      schema:
-        type: string
-    - name: last_name
-      in: path
-      description: last_name
-      required: true
-      schema:
-        type: string
-    - name: avatar
-      in: path
-      description: avatar
-      required: true
-      schema:
-        type: string
     get:
       summary: list users
       responses:
@@ -37,6 +12,23 @@ paths:
           description: successful
     post:
       summary: create user
+      consumes:
+      - application/json
+      parameters:
+      - name: params[user]
+        in: body
+        type: object
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+            first_name:
+              type: string
+            last_name:
+              type: string
+            avatar:
+              type: string
       responses:
         '200':
           description: successful
@@ -44,10 +36,9 @@ paths:
     parameters:
     - name: id
       in: path
+      type: string
       description: id
       required: true
-      schema:
-        type: string
     get:
       summary: show user
       responses:
@@ -55,11 +46,45 @@ paths:
           description: successful
     patch:
       summary: update user
+      consumes:
+      - application/json
+      parameters:
+      - name: params[user]
+        in: body
+        type: object
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+            first_name:
+              type: string
+            last_name:
+              type: string
+            avatar:
+              type: string
       responses:
         '200':
           description: successful
     put:
       summary: update user
+      consumes:
+      - application/json
+      parameters:
+      - name: params[user]
+        in: body
+        type: object
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+            first_name:
+              type: string
+            last_name:
+              type: string
+            avatar:
+              type: string
       responses:
         '200':
           description: successful

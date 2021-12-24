@@ -1,14 +1,13 @@
 require 'swagger_helper'
 require 'rails_helper'
-
-
+require 'spec_helper'
+# Describe the API for the Users resource
+# test with 'rails rswag'
 RSpec.describe 'api/v1/users', type: :request do
-
   path '/api/v1/users' do
-
+    # GET /api/v1/users
     get('list users') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -19,11 +18,19 @@ RSpec.describe 'api/v1/users', type: :request do
         run_test!
       end
     end
-    parameter name: 'email', in: :path, type: :string, description: 'email'
-    parameter name: 'first_name', in: :path, type: :string, description: 'first_name'
-    parameter name: 'last_name', in: :path, type: :string, description: 'last_name'
-    parameter name: 'avatar', in: :path, type: :string, description: 'avatar'
+
+    # POST /api/v1/users
     post('create user') do
+      consumes 'application/json'
+      parameter name: 'params[user]', in: :body, type: :object, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          first_name: { type: :string },
+          last_name: { type: :string },
+          avatar: { type: :string }
+        }
+      }
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
@@ -38,9 +45,8 @@ RSpec.describe 'api/v1/users', type: :request do
   end
 
   path '/api/v1/users/{id}' do
-    # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
-
+    # GET /api/v1/users/:id
     get('show user') do
       response(200, 'successful') do
         let(:id) { '123' }
@@ -55,8 +61,18 @@ RSpec.describe 'api/v1/users', type: :request do
         run_test!
       end
     end
-
+    # PUT /api/v1/users/:id
     patch('update user') do
+      consumes 'application/json'
+      parameter name: 'params[user]', in: :body, type: :object, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          first_name: { type: :string },
+          last_name: { type: :string },
+          avatar: { type: :string }
+        }
+      }
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -70,8 +86,18 @@ RSpec.describe 'api/v1/users', type: :request do
         run_test!
       end
     end
-
+    # PUT /api/v1/users/:id
     put('update user') do
+      consumes 'application/json'
+      parameter name: 'params[user]', in: :body, type: :object, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          first_name: { type: :string },
+          last_name: { type: :string },
+          avatar: { type: :string }
+        }
+      }
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -85,7 +111,7 @@ RSpec.describe 'api/v1/users', type: :request do
         run_test!
       end
     end
-
+    # DELETE /api/v1/users/:id
     delete('delete user') do
       response(200, 'successful') do
         let(:id) { '123' }
