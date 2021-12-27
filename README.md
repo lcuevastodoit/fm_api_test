@@ -15,7 +15,7 @@ Example project with Rails 6.1.4 and Ruby 2.7
 #### Instalation
 1. Clone the repository
 2. docker-compose build
-3. docker-compose run web rake db:create db:migrate
+3. docker-compose run web bundle exec rails db:create db:migrate db:test:prepare
 4. docker-compose up
 5. You can see the API Docs in http://localhost:3000/api-docs
 
