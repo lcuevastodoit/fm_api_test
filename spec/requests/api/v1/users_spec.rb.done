@@ -1,8 +1,8 @@
 require 'swagger_helper'
 require 'rails_helper'
 require 'spec_helper'
-# Describe the API for the Users resource
-# test with 'rails rswag'
+# Describe the API for the Users resource to generate OpenAPI/Swagger yaml
+# ..using 'bundle exec rails rswag'
 RSpec.describe 'api/v1/users', type: :request do
   path '/api/v1/users' do
     # GET /api/v1/users

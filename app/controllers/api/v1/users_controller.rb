@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
   def index
     @users = User.all
     if @users.blank?
-      render json: { error: 'Not Found Users' }, status: 400
+      render json: { error: 'Not Found Users' }, status: 200
     else
       paginate User.unscoped, per_page: 5, root: 'data', each_serializer: Api::V1::UserSerializer, status: :ok
     end
@@ -15,7 +15,11 @@ class Api::V1::UsersController < ApplicationController
   #-/api/v1/users/:id GET
   def show
     @user = User.find(params[:id])
+    if @user.blank?
+      render json: { error: 'Not Found User' }, status: 200
+    else
     render json: @user, root: 'data', each_serializer: Api::V1::UserSerializer, status: :ok
+    end
   end
 
   #-/api/v1/users/:id POST
